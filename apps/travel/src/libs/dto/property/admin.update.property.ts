@@ -1,0 +1,23 @@
+import { InputType, Field } from '@nestjs/graphql';
+import { IsOptional, IsEnum, IsString, MaxLength } from 'class-validator';
+import { PropertyStatus } from '../../enums/property.enum';
+
+@InputType()
+export class AdminUpdatePropertyInput {
+	@Field(() => PropertyStatus, { nullable: true })
+	@IsOptional()
+	@IsEnum(PropertyStatus)
+	propertyStatus?: PropertyStatus;
+
+	@Field({ nullable: true })
+	@IsOptional()
+	@IsString()
+	@MaxLength(200)
+	propertyName?: string;
+
+	@Field({ nullable: true })
+	@IsOptional()
+	@IsString()
+	@MaxLength(3000)
+	propertyDesc?: string;
+}

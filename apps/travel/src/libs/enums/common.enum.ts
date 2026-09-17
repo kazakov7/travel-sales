@@ -1,4 +1,6 @@
-export enum Message {
+import { registerEnumType } from '@nestjs/graphql';
+
+export enum Messages {
 	// =========================
 	// COMMON
 	// =========================
@@ -183,3 +185,14 @@ export enum Message {
 	FILE_TOO_LARGE = 'File size is too large!',
 	IMAGE_REQUIRED = 'Image is required!',
 }
+registerEnumType(Messages, {
+	name: 'Messages',
+});
+
+export enum Direction {
+	ASC = 1,
+	DESC = -1,
+}
+registerEnumType(Direction, {
+	name: 'Direction',
+});

@@ -25,8 +25,19 @@ export enum MemberAuthType {
 	PHONE = 'PHONE',
 	EMAIL = 'EMAIL',
 	TELEGRAM = 'TELEGRAM',
+	GOOGLE = 'GOOGLE',
+	KAKAO = 'KAKAO',
+	APPLE = 'APPLE',
 }
 
 registerEnumType(MemberAuthType, {
 	name: 'MemberAuthType',
+});
+
+export enum AgentType {
+	HOTEL = 'HOTEL',
+	TOUR = 'TOUR',
+}
+registerEnumType(AgentType, {
+	name: 'AgentType',
 });
