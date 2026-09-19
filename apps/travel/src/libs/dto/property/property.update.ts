@@ -12,7 +12,6 @@ export class UpdatePropertyInput {
 	@Field({ nullable: true })
 	@IsOptional()
 	@IsString()
-	@IsNotEmpty()
 	@MaxLength(200)
 	propertyName?: string;
 
@@ -25,65 +24,56 @@ export class UpdatePropertyInput {
 	@Field({ nullable: true })
 	@IsOptional()
 	@IsString()
-	@IsNotEmpty()
-	country?: string;
+	propertyCountry?: string;
 
 	@Field({ nullable: true })
 	@IsOptional()
 	@IsString()
-	@IsNotEmpty()
-	city?: string;
+	propertyCity?: string;
 
 	@Field({ nullable: true })
 	@IsOptional()
 	@IsString()
-	@IsNotEmpty()
-	address?: string;
+	propertyAddress?: string;
 
 	@Field(() => Float, { nullable: true })
 	@IsOptional()
 	@IsNumber()
 	@Min(0)
-	pricePerNight?: number;
+	propertyPricePerNight?: number;
 
 	@Field({ nullable: true })
 	@IsOptional()
 	@IsString()
-	currency?: string;
+	propertyCurrency?: string;
 
 	@Field(() => Int, { nullable: true })
 	@IsOptional()
-	@IsInt()
 	@Min(1)
-	maxGuests?: number;
+	propertyMaxGuests?: number;
 
 	@Field(() => Int, { nullable: true })
 	@IsOptional()
-	@IsInt()
 	@Min(0)
-	bedrooms?: number;
+	propertyBedrooms?: number;
 
 	@Field(() => Int, { nullable: true })
 	@IsOptional()
-	@IsInt()
 	@Min(0)
-	beds?: number;
+	propertyBeds?: number;
 
 	@Field(() => Int, { nullable: true })
 	@IsOptional()
-	@IsInt()
 	@Min(0)
-	bathrooms?: number;
+	propertyBathrooms?: number;
 
 	@Field(() => [PropertyAmenity], { nullable: true })
 	@IsOptional()
-	@IsArray()
 	@IsEnum(PropertyAmenity, { each: true })
-	amenities?: PropertyAmenity[];
+	propertyAmenities?: PropertyAmenity[];
 
 	@Field(() => [String], { nullable: true })
 	@IsOptional()
-	@IsArray()
 	@IsString({ each: true })
-	images?: string[];
+	properytImages?: string[];
 }

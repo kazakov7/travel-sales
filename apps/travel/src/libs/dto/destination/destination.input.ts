@@ -1,34 +1,33 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { IsEnum, IsOptional, IsString, MaxLength, IsArray } from 'class-validator';
+import { IsEnum, IsOptional, IsString, MaxLength, IsArray, IsNotEmpty } from 'class-validator';
 
 @InputType()
 export class DestinationInput {
 	@Field(() => String)
 	@IsString()
+	@IsNotEmpty()
 	destinationName: string;
 
 	@Field(() => String)
 	@IsString()
+	@IsNotEmpty()
 	destinationSlug: string;
 
 	@Field(() => String)
 	@IsString()
+	@IsNotEmpty()
 	destinationCountry: string;
 
 	@Field(() => String, { nullable: true })
 	@IsOptional()
 	@IsString()
+	@IsNotEmpty()
 	destinationCity?: string;
 
 	@Field(() => String, { nullable: true })
 	@IsOptional()
 	@IsString()
 	destinationAddress?: string;
-
-	@Field(() => String, { nullable: true })
-	@IsOptional()
-	@IsString()
-	destinationParentId?: string;
 
 	@Field(() => [String], { nullable: true })
 	@IsOptional()

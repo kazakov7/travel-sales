@@ -4,10 +4,6 @@ import { MemberType, MemberStatus, MemberAuthType, AgentType } from '../libs/enu
 
 const MemberSchema = new Schema(
 	{
-		// ─────────────────────────────
-		// Account
-		// ─────────────────────────────
-
 		memberType: {
 			type: String,
 			enum: MemberType,
@@ -27,10 +23,6 @@ const MemberSchema = new Schema(
 			enum: MemberAuthType,
 			default: MemberAuthType.PHONE,
 		},
-
-		// ─────────────────────────────
-		// Authentication
-		// ─────────────────────────────
 
 		memberPhone: {
 			type: String,
@@ -54,10 +46,6 @@ const MemberSchema = new Schema(
 		lastLoginAt: {
 			type: Date,
 		},
-
-		// ─────────────────────────────
-		// Profile
-		// ─────────────────────────────
 
 		memberNick: {
 			type: String,
@@ -84,10 +72,6 @@ const MemberSchema = new Schema(
 			type: String,
 		},
 
-		// ─────────────────────────────
-		// Agent
-		// ─────────────────────────────
-
 		agentType: {
 			type: String,
 			enum: AgentType,
@@ -107,10 +91,6 @@ const MemberSchema = new Schema(
 			type: Boolean,
 			default: false,
 		},
-
-		// ─────────────────────────────
-		// Statistics
-		// ─────────────────────────────
 
 		memberFollowers: {
 			type: Number,
@@ -162,10 +142,6 @@ const MemberSchema = new Schema(
 			default: 0,
 		},
 
-		// ─────────────────────────────
-		// Moderation
-		// ─────────────────────────────
-
 		memberWarnings: {
 			type: Number,
 			default: 0,
@@ -175,10 +151,6 @@ const MemberSchema = new Schema(
 			type: Number,
 			default: 0,
 		},
-
-		// ─────────────────────────────
-		// System
-		// ─────────────────────────────
 
 		deletedAt: {
 			type: Date,

@@ -1,14 +1,17 @@
 import { Field, Float, InputType, Int, ObjectType } from '@nestjs/graphql';
 
 import { PropertyAmenity, PropertyStatus, PropertyType } from '../../enums/property.enum';
-
+import { Types } from 'mongoose';
 @ObjectType()
 export class Property {
 	@Field()
-	_id: string;
+	_id: Types.ObjectId;
 
 	@Field()
-	memberId: string;
+	memberId: Types.ObjectId;
+
+	@Field(() => String)
+	destinationId: Types.ObjectId;
 
 	@Field(() => PropertyType)
 	propertyType: PropertyType;
@@ -23,37 +26,37 @@ export class Property {
 	propertyStatus: PropertyStatus;
 
 	@Field()
-	country: string;
+	propertyCountry: string;
 
 	@Field()
-	city: string;
+	propertyCity: string;
 
 	@Field()
-	address: string;
+	propertyAddress: string;
 
 	@Field(() => Float)
-	pricePerNight: number;
+	propertyPricePerNight: number;
 
 	@Field()
-	currency: string;
+	propertyCurrency: string;
 
 	@Field(() => Int)
-	maxGuests: number;
+	propertyMaxGuests: number;
 
 	@Field(() => Int)
-	bedrooms: number;
+	propertyBedrooms: number;
 
 	@Field(() => Int)
-	beds: number;
+	propertyBeds: number;
 
 	@Field(() => Int)
-	bathrooms: number;
+	propertyBathrooms: number;
 
 	@Field(() => [PropertyAmenity])
-	amenities: PropertyAmenity[];
+	propertyAmenities: PropertyAmenity[];
 
 	@Field(() => [String])
-	images: string[];
+	properytImages: string[];
 
 	// Statistics
 	@Field(() => Int)

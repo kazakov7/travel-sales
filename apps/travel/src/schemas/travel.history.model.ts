@@ -28,6 +28,6 @@ const TravelHistorySchema = new Schema(
 	},
 );
 
-TravelHistorySchema.index({ memberId: 1, destinationId: 1, bookingId: 1 }, { unique: true });
+TravelHistorySchema.index({ memberId: 1, destinationId: 1 }, { unique: true });
 
 export default TravelHistorySchema;

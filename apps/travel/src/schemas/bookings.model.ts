@@ -1,5 +1,5 @@
 import { Schema, model, Types } from 'mongoose';
-import { BookingStatus } from '../libs/enums/booking.enum';
+import { BookingCategory, BookingStatus } from '../libs/enums/booking.enum';
 
 const BookingSchema = new Schema(
 	{
@@ -12,7 +12,7 @@ const BookingSchema = new Schema(
 
 		bookingCategory: {
 			type: String,
-			enum: ['PROPERTY', 'TOUR'],
+			enum: BookingCategory,
 			required: true,
 			index: true,
 		},

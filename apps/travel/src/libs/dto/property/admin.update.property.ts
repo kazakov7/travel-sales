@@ -8,16 +8,4 @@ export class AdminUpdatePropertyInput {
 	@IsOptional()
 	@IsEnum(PropertyStatus)
 	propertyStatus?: PropertyStatus;
-
-	@Field({ nullable: true })
-	@IsOptional()
-	@IsString()
-	@MaxLength(200)
-	propertyName?: string;
-
-	@Field({ nullable: true })
-	@IsOptional()
-	@IsString()
-	@MaxLength(3000)
-	propertyDesc?: string;
 }

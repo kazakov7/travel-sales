@@ -34,11 +34,6 @@ export class DestinationUpdate {
 	@IsString()
 	destinationAddress?: string;
 
-	@Field(() => String, { nullable: true })
-	@IsOptional()
-	@IsString()
-	destinationParentId?: string;
-
 	@Field(() => [String], { nullable: true })
 	@IsOptional()
 	@IsArray()

@@ -14,6 +14,11 @@ import {
 import { PropertyAmenity, PropertyType } from '../../enums/property.enum';
 @InputType()
 export class CreatePropertyInput {
+	@Field(() => String, { nullable: true })
+	@IsString()
+	@IsOptional()
+	destinationId?: string;
+
 	@Field(() => PropertyType)
 	@IsNotEmpty()
 	@IsEnum(PropertyType)
@@ -34,56 +39,59 @@ export class CreatePropertyInput {
 	@Field()
 	@IsString()
 	@IsNotEmpty()
-	country: string;
+	propertyCountry: string;
 
 	@Field()
 	@IsString()
 	@IsNotEmpty()
-	city: string;
+	propertyCity: string;
 
 	@Field()
 	@IsString()
 	@IsNotEmpty()
-	address: string;
+	propertyAddress: string;
 
 	@Field(() => Float)
 	@IsNumber()
 	@Min(0)
-	pricePerNight: number;
+	@IsNotEmpty()
+	propertyPricePerNight: number;
 
 	@Field({ nullable: true })
 	@IsOptional()
 	@IsString()
-	currency?: string;
+	@IsNotEmpty()
+	propertyCurrency?: string;
 
 	@Field(() => Int)
 	@IsInt()
 	@Min(1)
-	maxGuests: number;
+	@IsNotEmpty()
+	propertyMaxGuests: number;
 
 	@Field(() => Int, { nullable: true })
 	@IsOptional()
 	@IsInt()
 	@Min(0)
-	bedrooms?: number;
+	propertyBedrooms?: number;
 
 	@Field(() => Int, { nullable: true })
 	@IsOptional()
 	@IsInt()
 	@Min(0)
-	beds?: number;
+	propertyBeds?: number;
 
 	@Field(() => Int, { nullable: true })
 	@IsOptional()
 	@IsInt()
 	@Min(0)
-	bathrooms?: number;
+	propertyBathrooms?: number;
 
 	@Field(() => [PropertyAmenity], { nullable: true })
 	@IsOptional()
 	@IsArray()
 	@IsEnum(PropertyAmenity, { each: true })
-	amenities?: PropertyAmenity[];
+	propertyAmenities?: PropertyAmenity[];
 
 	@Field(() => [String], { nullable: true })
 	@IsOptional()

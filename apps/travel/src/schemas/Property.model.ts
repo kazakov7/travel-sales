@@ -56,7 +56,7 @@ const PropertySchema = new Schema(
 			type: String,
 			required: true,
 		},
-		images: [
+		properytImages: [
 			{
 				type: String,
 			},
@@ -74,30 +74,30 @@ const PropertySchema = new Schema(
 			enum: PropertyCurrensy,
 		},
 
-		maxGuests: {
+		propertyMaxGuests: {
 			type: Number,
 			required: true,
 			min: 1,
 		},
 
-		bedrooms: {
+		propertyBedrooms: {
 			type: Number,
 			default: 1,
 			min: 0,
 		},
 
-		beds: {
+		propertyBeds: {
 			type: Number,
 			default: 1,
 			min: 0,
 		},
 
-		bathrooms: {
+		propertyBathrooms: {
 			type: Number,
 			default: 1,
 			min: 0,
 		},
-		amenities: [
+		propertyAmenities: [
 			{
 				type: String,
 				enum: PropertyAmenity,
