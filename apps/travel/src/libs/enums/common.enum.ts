@@ -184,6 +184,8 @@ export enum Messages {
 	INVALID_FILE_FORMAT = 'Invalid file format!',
 	FILE_TOO_LARGE = 'File size is too large!',
 	IMAGE_REQUIRED = 'Image is required!',
+
+	ONLY_SPECIFIC_ROLES = 'Only specific roles!',
 }
 registerEnumType(Messages, {
 	name: 'Messages',

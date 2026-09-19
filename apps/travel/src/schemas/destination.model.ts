@@ -1,11 +1,14 @@
 import { Schema } from 'mongoose';
-import { DestinationStatus } from '../libs/enums/destination';
+import { DestinationStatus, DestinationType } from '../libs/enums/destination';
 
 const DestinationSchema = new Schema(
 	{
-		// ─────────────────────────────
-		// Basic Information
-		// ─────────────────────────────
+		destinationType: {
+			type: String,
+			enum: DestinationType,
+			required: true,
+			index: true,
+		},
 
 		destinationStatus: {
 			type: String,
@@ -29,10 +32,6 @@ const DestinationSchema = new Schema(
 			index: true,
 		},
 
-		// ─────────────────────────────
-		// Location
-		// ─────────────────────────────
-
 		destinationCountry: {
 			type: String,
 			required: true,
@@ -48,22 +47,6 @@ const DestinationSchema = new Schema(
 			type: String,
 			trim: true,
 		},
-
-		// ─────────────────────────────
-		// Hierarchy
-		// ─────────────────────────────
-
-		destinationParentId: {
-			type: Schema.Types.ObjectId,
-			ref: 'Destination',
-			default: null,
-			index: true,
-		},
-
-		// ─────────────────────────────
-		// Content
-		// ─────────────────────────────
-
 		destinationImages: {
 			type: [String],
 			default: [],
@@ -72,11 +55,8 @@ const DestinationSchema = new Schema(
 		destinationDesc: {
 			type: String,
 			maxlength: 2000,
+			minLength: 5,
 		},
-
-		// ─────────────────────────────
-		// Statistics
-		// ─────────────────────────────
 
 		destinationViews: {
 			type: Number,
@@ -92,11 +72,6 @@ const DestinationSchema = new Schema(
 			type: Number,
 			default: 0,
 		},
-
-		// ─────────────────────────────
-		// System
-		// ─────────────────────────────
-
 		deletedAt: {
 			type: Date,
 			default: null,

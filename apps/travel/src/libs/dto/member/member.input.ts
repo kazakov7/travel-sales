@@ -13,7 +13,7 @@ export class MemberInput {
 	@Field({ nullable: true })
 	@IsNotEmpty()
 	@Length(4, 12)
-	memberPassword?: string;
+	memberPassword: string;
 
 	@Field({ nullable: true })
 	@IsOptional()

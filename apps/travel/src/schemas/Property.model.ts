@@ -1,27 +1,30 @@
 import { Schema } from 'mongoose';
-import { PropertyAmenity, PropertyStatus, PropertyType } from '../libs/enums/property.enum';
+import { PropertyAmenity, PropertyCurrensy, PropertyStatus, PropertyType } from '../libs/enums/property.enum';
 
 const PropertySchema = new Schema(
 	{
-		// ─────────────────────────────
-		// Owner
-		// ─────────────────────────────
-
 		memberId: {
 			type: Schema.Types.ObjectId,
 			ref: 'Member',
 			required: true,
 			index: true,
 		},
-
-		// ─────────────────────────────
-		// Basic Information
-		// ─────────────────────────────
-
+		destinationId: {
+			type: Schema.Types.ObjectId,
+			ref: 'Destination',
+			required: true,
+			index: true,
+		},
 		propertyType: {
 			type: String,
 			enum: PropertyType,
 			required: true,
+		},
+		propertyStatus: {
+			type: String,
+			enum: PropertyStatus,
+			default: PropertyStatus.ACTIVE,
+			index: true,
 		},
 
 		propertyName: {
@@ -34,58 +37,42 @@ const PropertySchema = new Schema(
 		propertyDesc: {
 			type: String,
 			maxlength: 3000,
+			minLength: 5,
 		},
 
-		// ─────────────────────────────
-		// Status
-		// ─────────────────────────────
-
-		propertyStatus: {
-			type: String,
-			enum: PropertyStatus,
-			default: PropertyStatus.ACTIVE,
-			index: true,
-		},
-
-		// ─────────────────────────────
-		// Location
-		// ─────────────────────────────
-
-		country: {
+		propertyCountry: {
 			type: String,
 			required: true,
 			index: true,
 		},
 
-		city: {
+		propertyCity: {
 			type: String,
 			required: true,
 			index: true,
 		},
 
-		address: {
+		propertyAddress: {
 			type: String,
 			required: true,
 		},
+		images: [
+			{
+				type: String,
+			},
+		],
 
-		// ─────────────────────────────
-		// Pricing
-		// ─────────────────────────────
-
-		pricePerNight: {
+		propertyPricePerNight: {
 			type: Number,
 			required: true,
 			min: 0,
 		},
 
-		currency: {
+		propertyCurrency: {
 			type: String,
-			default: 'KRW',
+			required: true,
+			enum: PropertyCurrensy,
 		},
-
-		// ─────────────────────────────
-		// Capacity
-		// ─────────────────────────────
 
 		maxGuests: {
 			type: Number,
@@ -110,11 +97,6 @@ const PropertySchema = new Schema(
 			default: 1,
 			min: 0,
 		},
-
-		// ─────────────────────────────
-		// Amenities
-		// ─────────────────────────────
-
 		amenities: [
 			{
 				type: String,
@@ -122,26 +104,16 @@ const PropertySchema = new Schema(
 			},
 		],
 
-		// ─────────────────────────────
-		// Images
-		// ─────────────────────────────
-
-		images: [
-			{
-				type: String,
-			},
-		],
-
-		// ─────────────────────────────
-		// Statistics
-		// ─────────────────────────────
-
 		propertyViews: {
 			type: Number,
 			default: 0,
 		},
 
 		propertyLikes: {
+			type: Number,
+			default: 0,
+		},
+		propertyComments: {
 			type: Number,
 			default: 0,
 		},
@@ -159,10 +131,6 @@ const PropertySchema = new Schema(
 		},
 
 		propertyRatingCount: {
-			type: Number,
-			default: 0,
-		},
-		propertyComments: {
 			type: Number,
 			default: 0,
 		},

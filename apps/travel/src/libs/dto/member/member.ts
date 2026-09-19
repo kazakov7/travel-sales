@@ -90,6 +90,9 @@ export class Member {
 	@Field({ nullable: true })
 	lastLoginAt?: Date;
 
+	@Field(() => String, { nullable: true })
+	accessToken?: string;
+
 	@Field({ nullable: true })
 	deletedAt?: Date;
 

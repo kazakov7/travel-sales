@@ -51,11 +51,6 @@ const MemberSchema = new Schema(
 			select: false,
 		},
 
-		emailVerified: {
-			type: Boolean,
-			default: false,
-		},
-
 		lastLoginAt: {
 			type: Date,
 		},
